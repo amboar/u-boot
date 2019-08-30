@@ -4,6 +4,8 @@
  *
  */
 
+#define DEBUG 1
+
 #include <common.h>
 #include <clk.h>
 #include <dm.h>
