@@ -108,3 +108,14 @@
 	u-boot,dm-pre-reloc;
 	status = "okay";
 };
+
+&gpio0 {
+	u-boot,dm-pre-reloc;
+
+	tpm_reset {
+		u-boot,dm-pre-reloc;
+		gpio-hog;
+		output-high;
+		gpios = <ASPEED_GPIO(R, 0) GPIO_ACTIVE_HIGH>;
+	};
+};
