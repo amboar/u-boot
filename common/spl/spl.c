@@ -12,6 +12,9 @@
 #include <dm.h>
 #include <handoff.h>
 #include <spl.h>
+#if defined(CONFIG_SPL_GPIO_HOG)
+#include <asm/gpio.h>
+#endif
 #include <asm/sections.h>
 #include <asm/u-boot.h>
 #include <nand.h>
@@ -650,6 +653,10 @@ void board_init_r(gd_t *dummy1, ulong dummy2)
 	 * and enabled (decrementer) in interrupt_init() here.
 	 */
 	timer_init();
+#endif
+
+#if defined(CONFIG_SPL_GPIO_HOG)
+	gpio_hog_probe_all();
 #endif
 
 #if CONFIG_IS_ENABLED(BOARD_INIT)
