@@ -322,6 +322,13 @@ config FIT_SIGNATURE
 	  format support in this case, enable it using
 	  CONFIG_IMAGE_FORMAT_LEGACY.
 
+config FIT_RUNTIME_SIGNATURE
+	bool "Control verification of FIT uImages at runtime"
+	depends on FIT_SIGNATURE
+	help
+	  This option allows board support to disable verification of
+	  signatures at runtime, for example through the state of a GPIO.
+
 config FIT_SIGNATURE_MAX_SIZE
 	hex "Max size of signed FIT structures"
 	depends on FIT_SIGNATURE

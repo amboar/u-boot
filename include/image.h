@@ -1103,6 +1103,15 @@ int calculate_hash(const void *data, int data_len, const char *algo,
 # define IMAGE_ENABLE_VERIFY	0
 #endif
 
+/*
+ * Further, allow run-time control of verification, e.g. via a jumper
+ */
+#if defined(CONFIG_FIT_RUNTIME_SIGNATURE) && !defined(USE_HOSTCC)
+# define fit_image_require_verified()	board_fit_image_require_verified()
+#else
+# define fit_image_require_verified()	IMAGE_ENABLE_VERIFY
+#endif
+
 #ifdef USE_HOSTCC
 void *image_get_host_blob(void);
 void image_set_host_blob(void *host_blob);
