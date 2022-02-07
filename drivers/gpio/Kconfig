@@ -84,6 +84,13 @@ config ALTERA_PIO
 	  Select this to enable PIO for Altera devices. Please find
 	  details on the "Embedded Peripherals IP User Guide" of Altera.
 
+config AST2600_GPIO
+	bool "ASPEED AST2600 GPIO driver"
+	depends on DM_GPIO
+	help
+	  Enable support for the GPIO controllers in the AST2600 through the "index" register
+	  interface.
+
 config BCM6345_GPIO
 	bool "BCM6345 GPIO driver"
 	depends on DM_GPIO && (ARCH_BMIPS || ARCH_BCM68360 || \
